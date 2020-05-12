@@ -9,11 +9,12 @@ namespace dev004_Carros
             Console.WriteLine("Escolha seu carro:");
             var carroEscolha = Console.ReadLine();
 
-            string mensagem;
+            var carro = carroEscolha.ToLower();
 
-            if (carroEscolha == "brazilia")
+            string mensagem;
+            if (!string.IsNullOrWhiteSpace(carro) && (carro == "chevette" || carro == "chevete" || carro == "xeveti"))
             {
-                mensagem = "Brazilia não carro, é carroça!";
+                mensagem = "Chevette é carro antigo, mas é carrão!";
             }
             else
             {
