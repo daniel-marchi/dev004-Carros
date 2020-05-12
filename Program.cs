@@ -7,25 +7,23 @@ namespace dev004_Carros
         static void Main(string[] args)
         {
             Console.WriteLine("Escolha seu carro:");
-            var carroEscolha = Console.ReadLine();
+            var carro = Console
+                                    .ReadLine()
+                                    .ToLower()
+                                    .Trim();
 
-            var carro = carroEscolha.ToLower().Trim();
+            if (!ValidarCarro(carro))
+                throw new Exception("Você precisa digitar algo! Carro é nulo ou em branco....");
 
-            string mensagem;
-            if (carro == "chevette" || carro == "chevete" || carro == "xeveti")
-            {
-                mensagem = "Chevette é carro antigo, mas é carrão!";
-            }
-            else if (!string.IsNullOrWhiteSpace(carro))
-            {
-                mensagem = $"O carro escolhido foi: {carroEscolha}";
-            }
-            else
-            {
-                mensagem = $"Escreve alguma coisa animal!";
-            }
+            Console.WriteLine((carro == "chevette" || carro == "chevete" || carro == "xeveti")
+                                    ? "Chevette é carro antigo, mas é carrão!"
+                                    : $"O carro escolhido foi: {carro}");
+        }
 
-            Console.WriteLine(mensagem);
+        public static bool ValidarCarro(string carro)
+        {
+            return !string.IsNullOrWhiteSpace(carro);
+            // || carro.IsNumber()...
         }
     }
 }
