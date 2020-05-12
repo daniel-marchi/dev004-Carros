@@ -3,7 +3,7 @@
 namespace dev004_Carros
 {
     class Program
-    {,
+    {
         static void Main(string[] args)
         {
             Console.WriteLine("Escolha seu carro:");
